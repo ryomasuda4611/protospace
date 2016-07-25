@@ -2,47 +2,44 @@
 
 
   * usersテーブル
-    - usernamme :string
-    - email
-    - password
-    - avator :text
-    - profiel :text
-    - group_id :integer
-
-  * groupテーブル
-    - group_name :string
+    - username :string
+    - email :string
+    - password :string
+    - avatar :text
+    - profile :text
+    - member :string
+    - works :text
 
   * commentsテーブル
     - review :text
-    - user_id :integer
-    - prototype_id :integer
+    - user :references
+    - prototype :references
 
   * prototypesテーブル
-    - title  :string
+    - title :string
     - catch_copy :string
-    - concept  :text
-    - user_id :integer
+    - concept :text
+    - user :references
 
   * prototype_imagesテーブル
-    - prototype_id
+    - prototype :references
 
   * like
-    - prototype_id
-    - user_id
+    - prototype :references
+    - user :references
 
 ## アソシエーション
   * user
     - has_many :comments
     - has_many :prototypes
     - has_many :likes
-    - belongs_to :group
 
   * group
     - has_many :users
 
   * comment
     - belongs_to :user
-    - belomgs_to :prototypes
+    - belomgs_to :prototype
 
   * prototype
     - has_many :prototype_images
@@ -51,6 +48,8 @@
     - belongs_to :user
 
   * prototype_image
+    - image :text
+    - type :integer
     - belongs_to :prototype
 
   * like
