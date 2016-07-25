@@ -26,11 +26,15 @@
   * prototype_imagesテーブル
     - prototype_id
 
+  * like
+    - prototype_id
+    - user_id
 
 ## アソシエーション
   * user
     - has_many :comments
     - has_many :prototypes
+    - has_many :likes
     - belongs_to :group
 
   * group
@@ -43,7 +47,12 @@
   * prototype
     - has_many :prototype_images
     - has_many :comments
+    - has_many :likes
     - belongs_to :user
 
   * prototype_image
     - belongs_to :prototype
+
+  * like
+    -belongs_to :user
+    -belongs_to :prototype
