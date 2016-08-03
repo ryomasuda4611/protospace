@@ -10,10 +10,13 @@
       //not login
       %ul.nav.navbar-nav.navbar-right
         %li
-          .btn.btn-primary.navbar-btn
-            %a{href: "/login"}
-              Get Started
-      //login
+          -unless user_signed_in?
+            .btn.btn-primary.navbar-btn
+              = link_to "Get Started", new_user_session_path
+        %li
+          -if user_signed_in?
+            .btn.btn-primary.navbar-btn
+              =link_to "Log_out", destroy_user_session_path, :method=>:delete
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", href: "#", role: "button"}
@@ -21,10 +24,9 @@
             %span.caret
           %ul.dropdown-menu{role: "menu"}
             %li
-              %a{href: "#"} Profile Edit
+              =link_to "Profile Edit", "#"
             %li
-              %a{href: "#"} Logout
+              =link_to "Logout", "#"
         %li
           .btn.btn-primary.navbar-btn
-            %a{href: "/proto/new"}
-              New Proto
+            =link_to "New Proto", "/proto/new"
