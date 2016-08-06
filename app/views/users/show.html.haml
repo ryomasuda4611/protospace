@@ -1,0 +1,59 @@
+.container.user-page
+  %header.user-nav
+    .media
+      .media-left
+        =link_to "#" do
+          =image_tag @user.avatar, class:"media-object", alt:"64x64", data: {holder:{rendered: true}}, data: {src: "holder.js/64x64"}, size: "64x64"
+      .media-body
+        %h4#top-aligned-media.media-heading
+          Top aligned media
+          %span.label.label-default.project-number
+            29
+            %i Projects
+        .proto-user
+          %span.degree we-b inc. Designer
+        .row
+          .col-md-6
+            %h4 Profile
+            %p 
+              = @user.profile
+          .col-md-6
+            %h4 Works
+            %p
+              = @user.works
+.container.proto-list
+  .row
+    .col-sm-4.col-md-3.proto-content
+      .thumbnail
+        =link_to "" do
+          = image_tag("sample.png")
+          .caption
+            %h3 Salvation Army on iPad App Wireframe
+            .proto-meta
+              .proto-date
+                Apr 26
+            %ul.proto-tag-list.list-inline
+              %li
+                =link_to "iPad","#", class: "btn btn-default"
+              %li
+                =link_to "Wireframe", "#", class: "btn btn-default"
+
+.text-center
+  %ul.pagination
+    %li.disabled
+      =link_to "#", aria: {label: "Previous"} do
+        %span{aria: {hidden: "true"}} «
+    %li.active
+      =link_to '#' do
+        %span.sr-only (current)
+    %li
+      =link_to "2", "#"
+    %li
+      =link_to "3", "#"
+    %li
+      =link_to "4", "#"
+    %li
+      =link_to "5", "#"
+    %li
+      =link_to '#', aria: {label: "Next"} do
+        %span{aria:{hidden: true}} »
