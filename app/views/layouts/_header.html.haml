@@ -8,9 +8,8 @@
       = link_to root_path do
         = image_tag("logo.png", alt: "PROTO TYPE - SHARE THE PROTOTYPE", height: "36px")
     .navbar-collapse.collapse.navbar-responsive-collapse
-      //login
-      - if user_signed_in?
-        %ul.nav.navbar-nav.navbar-right
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
           %li.dropdown
             = link_to '#', class: "dropdown-toggle", aria: { expanded: false }, data: { toggle: 'dropdown' }, role: "button" do
               =current_user.username
@@ -25,9 +24,7 @@
             %li
               .btn.btn-primary.navbar-btn
                 = link_to 'New Proto', '#'
-        //not login
-      - else
-        %ul.nav.navbar-nav.navbar-right
+        - else
           %li
             .btn.btn-primary.navbar-btn
               = link_to 'Get Started', '/users/sign_in'
