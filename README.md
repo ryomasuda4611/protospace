@@ -23,6 +23,8 @@
 
   * prototype_imagesテーブル
     - prototype :references
+    - image_url :text
+    - role    :integer
 
   * like
     - prototype :references
