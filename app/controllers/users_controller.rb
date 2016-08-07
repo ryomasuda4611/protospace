@@ -10,9 +10,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(update_params)
-    sign_in(current_user, bypass: true)
-    redirect_to user_url(current_user) ,notice: 'ログインに成功しました'
+    if current_user.update(update_params)
+      sign_in(current_user, bypass: true)
+      redirect_to user_url(current_user) , flash: { success: 'Yes!! Success' }
+    else
+      redirect_to edit_user_path(current_user), alert: 'All forms can\'t be blank'
+    end
   end
 
   private
