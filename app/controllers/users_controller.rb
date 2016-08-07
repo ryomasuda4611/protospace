@@ -11,12 +11,13 @@ class UsersController < ApplicationController
 
   def update
     current_user.update(update_params)
-    redirect_to user_url(current_user)
+    sign_in(current_user, bypass: true)
+    redirect_to user_url(current_user) ,notice: 'ログインに成功しました'
   end
 
   private
 
   def update_params
-    params.require(:user).permit(:username, :avatar, :profile, :member, :works)
+    params.require(:user).permit(:username,:password, :avatar, :profile, :member, :works)
   end
 end
