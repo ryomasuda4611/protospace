@@ -9,7 +9,7 @@
         .col-md-12
           .cover-image-upload
             =f.fields_for :prototype_images do |prototype_images_form|
-              =prototype_images_form.file_field :image_url
+              =prototype_images_form.file_field :image
               =prototype_images_form.hidden_field :role, value: 0
         .col-md-12
           %ul.proto-sub-list.list-group
@@ -17,7 +17,7 @@
               =f.fields_for :prototype_images do |prototype_images_form|
                 %li.list-group-item.col-md-4
                   .image-upload
-                    =prototype_images_form.file_field :image_url
+                    =prototype_images_form.file_field :image
                     =prototype_images_form.hidden_field :role, value: 1
       .row.proto-description
         .col-md-12
