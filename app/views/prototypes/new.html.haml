@@ -1,4 +1,4 @@
-= form_for @prototype, :url => {:action => :create} do |f|
+= form_for [current_user,@prototype] do |f|
   .container.proto-new{action: ""}
     .col-md-8.col-md-offset-2
       %header.row.user-nav.row
