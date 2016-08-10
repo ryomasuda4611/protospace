@@ -17,7 +17,7 @@
       .col-sm-4.col-md-3.proto-content
         .thumbnail
           = link_to '/users/#{prototype.user,id}/prototypes/#{prototype.id}' do
-            = image_tag'#{prototype.prototype_image[role:1]}'
+            = image_tag prototype.main_image.url if prototype.main_image
             .caption
               %h3
                 = prototype.title
