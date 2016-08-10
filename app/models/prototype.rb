@@ -4,7 +4,7 @@ class Prototype < ActiveRecord::Base
   accepts_nested_attributes_for :prototype_images
   def main_image
     if prototype_images.main.present?
-    prototype_images.main.first.image
+    prototype_images.main[0].image
   end
 end
 end

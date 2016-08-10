@@ -17,13 +17,13 @@
       .col-sm-4.col-md-3.proto-content
         .thumbnail
           = link_to '/users/#{prototype.user,id}/prototypes/#{prototype.id}' do
-            = image_tag prototype.main_image.url if prototype.main_image
+            = image_tag prototype.main_image if prototype.main_image
             .caption
               %h3
                 = prototype.title
               .proto-meta
                 .proto-user
-                  =link_to prototype.user.username, user_path(prototype.user)
+                  = link_to prototype.user.username, user_path(prototype.user)
                 .proto-posted
                   Apr 26
               %ul.proto-tag-list.list-inline
