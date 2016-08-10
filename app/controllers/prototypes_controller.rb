@@ -1,11 +1,11 @@
 class PrototypesController < ApplicationController
 
-   def index
-    @prototypes = Prototype.all
+  def index
+    @prototypes = Prototype.includes(:user)
   end
 
   def show
-    @prototype= Prototype.where(:user_id => params[:user_id])
+    @prototype= Prototype.find_by(id: params[:id])
   end
 
   def new
