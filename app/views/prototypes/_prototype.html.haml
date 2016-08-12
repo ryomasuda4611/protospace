@@ -4,7 +4,10 @@
       .col-sm-4.col-md-3.proto-content
         .thumbnail
           = link_to '/users/#{prototype.user_id}/prototypes/#{prototype.id}' do
-            = image_tag prototype.main_image if prototype.main_image
+            -if prototype.main_image
+              = image_tag prototype.main_image
+            -else
+              = image_tag "fallback/noimage.png"
             .caption
               %h3
                 = prototype.title
