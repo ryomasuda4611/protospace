@@ -8,6 +8,29 @@ class PrototypesController < ApplicationController
     @prototype= Prototype.find_by(id: params[:id])
   end
 
+  def destroy
+    prototype=Prototype.find_by(id: params[:id])
+    if prototype.user_id == current_user.id
+      if prototype.destroy
+        redirect_to action: :index , notice: "Prototype was successfully destroyed"
+      else
+        redirect_to action: :edit, alert: "Destroying was rejected"
+      end
+    end
+  end
+
+  def edit
+    @prototype=Prototype.find_by(id: params[:id])
+  end
+
+  def update
+    prototype= Prototype.find_by(id: params[:id])
+    if prototype.user_id == current_user.id
+      prototype.update(prototype_params)
+    end
+    redirect_to action: :index
+  end
+
   def new
     @prototype = Prototype.new
     @prototype.prototype_images.build
@@ -32,4 +55,6 @@ class PrototypesController < ApplicationController
         prototype_images_attributes:[:id, :image, :status]
         )
     end
+
+   
 end
