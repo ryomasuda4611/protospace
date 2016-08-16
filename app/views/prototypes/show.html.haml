@@ -42,6 +42,13 @@
           %a{href: "#", class: "btn btn-default"} iPad
         %li
           %a{href: "#", class: "btn btn-default"} wireframe
+          /後ほどlink_toに変更します
+  -if @prototype.user == current_user
+    .btn.btn-primary.navbar-btn
+      =link_to "編集", edit_user_prototype_path(@prototype.user,@prototype)
+    .btn.btn-primary.navbar-btn
+      =link_to "破壊", "/users/#{@prototype.user.id}/prototypes/#{@prototype.id}", method: :delete
+
   .row.proto-comments
     %h4.col-md-12
       Comments
