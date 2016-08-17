@@ -1,17 +1,17 @@
 class PrototypesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  before_action :set_prototype, only: [:show, :destroy, :edit, :update]
+
   def index
     @prototypes = Prototype.includes(:user)
   end
 
   def show
-    @prototype= Prototype.find_by(id: params[:id])
   end
 
   def destroy
-    prototype=Prototype.find_by(id: params[:id])
-    if prototype.user_id == current_user.id
-      if prototype.destroy
+    if @prototype.user_id == current_user.id
+      if @prototype.destroy
         redirect_to action: :index , notice: "Prototype was successfully destroyed"
       else
         redirect_to action: :edit, alert: "Destroying was rejected"
@@ -20,15 +20,16 @@ class PrototypesController < ApplicationController
   end
 
   def edit
-    @prototype=Prototype.find_by(id: params[:id])
   end
 
   def update
-    prototype= Prototype.find_by(id: params[:id])
-    if prototype.user_id == current_user.id
-      prototype.update(prototype_params)
+    if @prototype.user_id == current_user.id
+      if @prototype.update(prototype_params)
+        redirect_to action: :index, notice: "Prototype was successfully updated"
+      else
+        redirect_to action: :edit, alert: "Updating was rejected"
+      end
     end
-    redirect_to action: :index
   end
 
   def new
@@ -46,6 +47,11 @@ class PrototypesController < ApplicationController
   end
 
   private
+
+    def set_prototype
+      @prototype = Prototype.find(id: params[:id])
+    end
+
     def prototype_params
       params.require(:prototype).permit(
         :title,
@@ -55,6 +61,4 @@ class PrototypesController < ApplicationController
         prototype_images_attributes:[:id, :image, :status]
         )
     end
-
-   
 end
