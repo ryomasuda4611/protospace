@@ -49,7 +49,7 @@ class PrototypesController < ApplicationController
   private
 
     def set_prototype
-      @prototype = Prototype.find(id: params[:id])
+      @prototype = Prototype.find(params[:id])
     end
 
     def prototype_params
