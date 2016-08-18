@@ -34,7 +34,8 @@ class PrototypesController < ApplicationController
 
   def new
     @prototype = Prototype.new
-    @prototype.prototype_images.build
+    @main_image = @prototype.prototype_images.build
+    @sub_images = 3.times{ @prototype.prototype_images.build }
   end
 
   def create
