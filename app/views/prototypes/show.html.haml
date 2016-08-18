@@ -45,9 +45,9 @@
           /後ほどlink_toに変更します
   -if @prototype.user == current_user
     .btn.btn-primary.navbar-btn
-      =link_to "編集", edit_user_prototype_path(@prototype.user,@prototype)
+      =link_to "編集", edit_prototype_path(@prototype)
     .btn.btn-primary.navbar-btn
-      =link_to "破壊", "/users/#{@prototype.user.id}/prototypes/#{@prototype.id}", method: :delete
+      =link_to "破壊", "/prototypes/#{@prototype.id}", method: :delete
 
   .row.proto-comments
     %h4.col-md-12

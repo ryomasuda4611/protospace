@@ -3,7 +3,7 @@
     -@prototypes.each do |prototype|
       .col-sm-4.col-md-3.proto-content
         .thumbnail
-          = link_to user_prototype_path(prototype.user, prototype) do
+          = link_to prototype_path(prototype) do
             -if prototype.main_image
               = image_tag prototype.main_image
             -else
