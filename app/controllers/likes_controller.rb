@@ -1,13 +1,17 @@
 class LikesController < ApplicationController
+  before_action :set_prototype, only: [:create, :destroy]
+
   def create
-    @like = Like.create(user_id: current_user.id, prototype_id: params[:prototype_id])
-    @likes = Like.where(prototype_id: params[:prototype_id])
-    @prototypes = Prototype.all
+    @like = @prototype.likes.create(user_id: current_user.id)
   end
 
   def destroy
-    like = Like.find_by(user_id: current_user.id, prototype_id: params[:prototype_id])
-    like.destroy
-    @likes = Like.where(prototype_id: params[:prototype_id])
-    @prototype = Prototype.all
+    Like.find(params[:id]).destroy
+  end
+
+  private
+
+  def set_prototype
+    @prototype = Prototype.find(params[:prototype_id])
+  end
 end
