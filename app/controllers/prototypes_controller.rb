@@ -8,6 +8,7 @@ class PrototypesController < ApplicationController
 
   def show
     @like =Like.find_by(prototype_id: @prototype.id)
+    @comments = @prototype.comments
   end
 
   def destroy
