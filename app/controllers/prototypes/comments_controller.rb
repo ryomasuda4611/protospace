@@ -12,7 +12,7 @@ after_action :set_comments, only [:create, :destroy]
 private
 
   def comment_params
-    params.require(:comment).permit(:review)
+    params.require(:comment).permit(:review, :user_id, :prototype_id)
   end
 
   def set_prototype
