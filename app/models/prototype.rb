@@ -1,7 +1,12 @@
 class Prototype < ActiveRecord::Base
   has_many :prototype_images, dependent: :destroy
   belongs_to :user
+  has_many :likes, dependent: :destroy
   accepts_nested_attributes_for :prototype_images, reject_if: proc { |attributes| attributes['image'].blank?}, allow_destroy: true
+
+  def like_user(user_id)
+    likes.find_by(user_id: user_id)
+  end
 
   def main_image
     if prototype_images.main.present?
