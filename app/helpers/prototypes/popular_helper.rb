@@ -1,0 +1,2 @@
+module Prototypes::PopularHelper
+end
