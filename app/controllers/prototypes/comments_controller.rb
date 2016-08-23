@@ -1,6 +1,6 @@
 class Prototypes::CommentsController < ApplicationController
-before_action :set_prototype, only: [:create, :destroy]
-before_action :set_comments, only: [:create, :destroy]
+  before_action :set_prototype, only: [:create, :destroy]
+  before_action :set_comments, only: [:create, :destroy]
   def create
     @comment = @prototype.comments.create(comment_params)
   end
