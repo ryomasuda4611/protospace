@@ -1,6 +1,7 @@
 class Prototypes::PopularController < ApplicationController
-  
+
   def index
-    @prototypes = Prototypes.order('likes_counter DESC')
+    @prototypes = Prototype.order("prototypes.likes_counter DESC")
+    render template: "prototypes/index"
   end
 end
