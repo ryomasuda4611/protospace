@@ -7,7 +7,7 @@
     = javascript_include_tag 'application', data: { turbolinks: { track: true }}
     = csrf_meta_tags
   %body
-    = render "layouts/header"
+    = render 'layouts/header'
 
     .container
 
@@ -15,4 +15,4 @@
 
       = yield
 
-      = render "layouts/footer"
+      = render 'layouts/footer'
