@@ -1,0 +1,2 @@
+module Prototypes::CommentsHelper
+end

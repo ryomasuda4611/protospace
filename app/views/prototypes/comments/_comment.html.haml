@@ -1,0 +1,11 @@
+.media
+  .media-left
+    = link_to user_path(comment.user)  do
+      =image_tag comment.user.avatar, class: "media-object", alt: "64x64", data: {holder: {rendered: true}}, data: {src: "holder.js/64x64"}, size: "64x64"
+  .media-body
+    %h4#top-aligned-media.media-heading
+      = link_to comment.user.username, user_path(comment.user), class: "anchorjs-link"
+    %p
+      = comment.review
+    - if comment.user.id == current_user.id
+      = link_to "このコメントを削除する", prototype_comment_path(comment, prototype_id: comment.prototype.id), method: :delete, remote: true
