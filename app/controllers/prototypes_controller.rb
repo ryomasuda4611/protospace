@@ -3,7 +3,7 @@ class PrototypesController < ApplicationController
   before_action :set_prototype, only: [:show, :destroy, :edit, :update]
 
   def index
-    @prototypes = Prototype.includes(:user)
+    @prototypes = Prototype.includes(:user).order("created_at DESC")
   end
 
   def show
