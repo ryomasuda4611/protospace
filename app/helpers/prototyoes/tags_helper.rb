@@ -1,2 +1,0 @@
-module Prototyoes::TagsHelper
-end
