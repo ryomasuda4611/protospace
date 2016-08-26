@@ -7,4 +7,5 @@ Rails.application.routes.draw do
       resources :comments, only:[:create, :destroy], module: :prototypes
   end
   resources :popular, only:[:index], module: :prototypes
+  resources :tags, only:[:index, :show], module: :prototypes
 end
