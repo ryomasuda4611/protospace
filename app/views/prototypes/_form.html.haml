@@ -26,11 +26,8 @@
         .col-md-12
           %h4 Tag List
           .row
-            .col-md-3
-              %input{type: "text", placeholder: "Web Design"}/
-            .col-md-3
-              %input{type: "text", placeholder: "UI"}/
-            .col-md-3
-              %input{type: "text", placeholder: "Application"}/
+            -3.times do
+              .col-md-4
+                = text_field_tag 'prototype[tag][]', "", placeholder:"tag"
       .row.text-center.proto-btn
         =f.submit "Post!", class: "btn btn-lg btn-primary btn-block"
