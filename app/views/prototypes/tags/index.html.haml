@@ -3,5 +3,4 @@
     %ul
       -@tags.each do |tag|
         .btn.btn-default.col-lg-1
-          %li
-            =tag
+          = link_to tag, tag_path(tag)
