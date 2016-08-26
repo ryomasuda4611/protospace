@@ -4,8 +4,8 @@ class Prototype < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :prototype_images, reject_if: proc { |attributes| attributes['image'].blank?}, allow_destroy: true
-  acts_as_taggable_on :prototypes
   acts_as_taggable
+
 
   def like_user(user_id)
     likes.find_by(user_id: user_id)
