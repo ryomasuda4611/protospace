@@ -625,3 +625,27 @@ body {
   height: 10px;
   text-align: center;
 }
+
+.tag_contents {
+  margin-top: 40px;
+  clear: both;
+  .btn.btn-default.col-lg-1{
+    width: auto;
+    margin: 5px;
+}
+ ul li{
+  list-style: none;
+  text-align: center;
+}
+}
+
+.tag_show_proto{
+  margin: 20px 0 20px;
+  p{
+    font-size: 25px;
+  }
+}
+
+footer p{
+  text-align: center;
+}

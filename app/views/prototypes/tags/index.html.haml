@@ -1,0 +1,6 @@
+.container.proto-page
+  .tag_contents
+    %ul
+      -@tags.each do |tag|
+        .btn.btn-default.col-lg-1
+          = link_to tag, tag_path(tag)

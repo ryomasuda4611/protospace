@@ -1,0 +1,2 @@
+module Prototypes::TagsHelper
+end
