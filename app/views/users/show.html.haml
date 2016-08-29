@@ -2,8 +2,7 @@
   %header.user-nav
     .media
       .media-left
-        = link_to "#" do
-          = image_tag @user.avatar, class:"media-object", alt:"64x64", data: {holder:{rendered: true}}, data: {src: "holder.js/64x64"}, size: "64x64"
+        = image_tag @user.avatar, class:"media-object", alt:"64x64", data: {holder:{rendered: true}}, data: {src: "holder.js/64x64"}, size: "64x64"
       .media-body
         %h4#top-aligned-media.media-heading
           =@user.username
