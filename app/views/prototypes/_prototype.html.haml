@@ -1,22 +1,19 @@
-.container.proto-list
-  .row
-    -@prototypes.each do |prototype|
-      .col-sm-4.col-md-3.proto-content
-        .thumbnail
-          = link_to prototype_path(prototype) do
-            -if prototype.main_image
-              = image_tag prototype.main_image
-            -else
-              = image_tag "fallback/noimage.png"
-            .caption
-              %h3
-                = prototype.title
-              .proto-meta
-                .proto-user
-                  = link_to prototype.user.username, user_path(prototype.user)
-                .proto-posted
-                  Apr 26
-              %ul.proto-tag-list.list-inline
-                -prototype.tags.each do |tag|
-                  %li
-                    = link_to tag, tag_path(tag.id), class: "btn btn-default"
+.col-sm-4.col-md-3.proto-content
+  .thumbnail
+    = link_to prototype_path(prototype) do
+      -if prototype.main_image
+        = image_tag prototype.main_image
+      -else
+        = image_tag "fallback/noimage.png"
+      .caption
+        %h3
+          = prototype.title
+        .proto-meta
+          .proto-user
+            = link_to prototype.user.username, user_path(prototype.user)
+          .proto-posted
+            Apr 26
+        %ul.proto-tag-list.list-inline
+          -prototype.tags.each do |tag|
+            %li
+              = link_to tag, tag_path(tag.id), class: "btn btn-default"
