@@ -6,12 +6,13 @@
           = image_tag @user.avatar, class:"media-object", alt:"64x64", data: {holder:{rendered: true}}, data: {src: "holder.js/64x64"}, size: "64x64"
       .media-body
         %h4#top-aligned-media.media-heading
-          Top aligned media
+          =@user.username
           %span.label.label-default.project-number
             = @user.prototypes.length
             %i Projects
         .proto-user
-          %span.degree we-b inc. Designer
+          %span.degree
+            Group of #{@user.member}
         .row
           .col-md-6
             %h4 Profile
