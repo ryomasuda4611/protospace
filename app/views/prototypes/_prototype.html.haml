@@ -12,7 +12,7 @@
           .proto-user
             = link_to prototype.user.username, user_path(prototype.user)
           .proto-posted
-            Apr 26
+            = prototype.created_at.strftime('%Y年%m月%d日')
         %ul.proto-tag-list.list-inline
           -prototype.tags.each do |tag|
             %li
