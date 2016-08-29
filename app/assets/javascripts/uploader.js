@@ -1,7 +1,7 @@
 $(function() {
   $('.js-image-upload').each(function() {
-    var preview = $(this);
-    var prototype_image = $(this).find('input[type=file]');
+    let preview = $(this);
+    let prototype_image = $(this).find('input[type=file]');
     prototype_image.change(function() {
       if (!this.files.length) {
         alert('画像を選んでください')
