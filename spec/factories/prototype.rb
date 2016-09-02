@@ -4,4 +4,5 @@ FactoryGirl.define do
   catch_copy {Faker::Lorem.sentence}
   concept {Faker::Lorem.paragraph}
   user
+  end
 end
