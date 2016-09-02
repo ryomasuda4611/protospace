@@ -10,4 +10,11 @@ describe PrototypeImage do
     it {should validate_presence_of(:image).with_message("can't be blank")}
     it {should validate_presence_of(:status).with_message("can't be blank")}
   end
+
+  describe 'association' do
+    it{ should belong_to (:prototype) }
+  end
+  describe 'enum' do
+    it { should define_enum_for(:status).with([:main, :sub])}
+  end
 end
