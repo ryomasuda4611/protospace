@@ -9,5 +9,6 @@ FactoryGirl.define do
     trait :sub do
       status :sub
     end
+    prototype
   end
 end
