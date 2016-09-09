@@ -38,6 +38,7 @@ describe Prototype do
         expect{ prototype.destroy }.to change{PrototypeImage.count}
       end
     end
+
     context 'with like' do
       it 'is deleted with likes' do
         like = create(:like, prototype: prototype)
@@ -45,6 +46,7 @@ describe Prototype do
       end
     end
   end
+
   describe 'method_test' do
     let(:user){ create(:user) }
     let(:prototype){ create(:prototype, user: user) }
@@ -64,6 +66,7 @@ describe Prototype do
         end
       end
     end
+
     describe 'main_image' do
       context 'when status of image is main' do
         it 'return true' do
@@ -71,6 +74,7 @@ describe Prototype do
           expect(prototype.main_image).to be_truthy
         end
       end
+
       context 'when status of image is sub' do
         it 'return false' do
           prototype_image = create(:prototype_image, :sub, prototype: prototype)
