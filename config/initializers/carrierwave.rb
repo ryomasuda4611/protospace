@@ -11,8 +11,12 @@ CarrierWave.configure do |config|
     when 'development'
         config.fog_directory  = 'protospace-upload-test'
         config.asset_host = 'https://s3.amazonaws.com/protospace-upload-test'
+        config.storage = :fog
     when 'production'
         config.fog_directory  = 'protospace-upload-test'
         config.asset_host = 'https://s3.amazonaws.com/protospace-upload-test'
+        config.storage = :fog
+    when 'test'
+        config.storage = :file
     end
 end

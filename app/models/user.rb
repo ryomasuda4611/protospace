@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates_presence_of :email, :password, :username
+  validates_presence_of :email, :username
+  validates :password, presence: true, length: {minimum: 6}
   mount_uploader :avatar, AvatarUploader
   has_many :prototypes
   has_many :likes
