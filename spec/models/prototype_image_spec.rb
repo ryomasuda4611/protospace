@@ -1,30 +1,30 @@
 require 'rails_helper'
 
 describe PrototypeImage do
-  let(:prototypeImage){ build(:prototypeImage, :main) }
+  let(:prototype_image){ build(:prototype_image, :main) }
 
   describe 'validation' do
     it 'is valid' do
-      expect(prototypeImage).to be_valid
+      expect(prototype_image).to be_valid
     end
 
     it 'is invalid without status' do
-      prototypeImage[:status] = nil
-      expect(prototypeImage).not_to be_valid
+      prototype_image[:status] = nil
+      expect(prototype_image).not_to be_valid
     end
 
     it 'is invalid without image' do
-      prototypeImage = build(:prototypeImage, :main, image: nil)
-      prototypeImage[:image] = nil
-      expect(prototypeImage).not_to be_valid
+      prototype_image = build(:prototype_image, :main, image: nil)
+      prototype_image[:image] = nil
+      expect(prototype_image).not_to be_valid
     end
   end
 
   describe 'association' do
     it 'associate with prototype' do
       prototype = build(:prototype)
-      prototypeImage = build(:prototypeImage, prototype: prototype)
-      expect(prototypeImage.prototype).to eq prototype
+      prototype_image = build(:prototype_image, prototype: prototype)
+      expect(prototype_image.prototype).to eq prototype
     end
   end
 end
