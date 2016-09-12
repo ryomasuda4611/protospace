@@ -12,13 +12,10 @@ class PrototypesController < ApplicationController
   end
 
   def destroy
-    render :nothing => true
-    if @prototype.user_id == current_user.id
-      if @prototype.destroy
-        redirect_to action: :index , notice: "Prototype was successfully destroyed"
-      else
-        redirect_to action: :edit, alert: "Destroying was rejected"
-      end
+    if @prototype.destroy
+      redirect_to root_path , notice: "Prototype was successfully destroyed"
+    else
+      redirect_to action: :edit, alert: "Destroying was rejected"
     end
   end
 
@@ -26,13 +23,10 @@ class PrototypesController < ApplicationController
   end
 
   def update
-    render :nothing => true
-    if @prototype.user_id == current_user.id
-      if @prototype.update(prototype_params)
-        redirect_to action: :index, notice: "Prototype was successfully updated"
-      else
-        redirect_to action: :edit, alert: "Updating was rejected"
-      end
+    if @prototype.update(prototype_params)
+      redirect_to root_path, notice: "Prototype was successfully updated"
+    else
+      redirect_to edit_prototype_path(@prototype), alert: "Updating was rejected"
     end
   end
 
@@ -49,7 +43,7 @@ class PrototypesController < ApplicationController
     if @prototype.save
       redirect_to root_path, notice: "Prototype was successfully created"
     else
-      redirect_to new_user_prototype(current_user), alert: "Posting was rejected"
+      redirect_to new_prototype_path, alert: "Posting was rejected"
     end
   end
 
