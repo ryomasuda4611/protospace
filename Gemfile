@@ -61,4 +61,5 @@ group :test do
   gem "poltergeist"
   gem 'shoulda-matchers'
   gem "selenium-webdriver"
+  gem 'capybara-screenshot'
 end
