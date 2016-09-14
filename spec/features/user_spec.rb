@@ -4,7 +4,7 @@ feature 'user', type: :feature do
   given(:user){ build(:user) }
   given(:logined_user){ create(:user) }
 
-  scenario 'sign_up' do
+ def sign_up
     visit root_path
     click_on 'Get Started'
     click_on 'Sign up now'
@@ -15,7 +15,16 @@ feature 'user', type: :feature do
     expect(page).to have_content 'Welcome! You have signed up successfully.'
   end
 
-  scenario 'sign_in and post new prototype' do
+  def sign_in
+    visit root_path
+    click_on 'Get Started'
+    fill_in 'Email address', with: logined_user.email
+    fill_in 'Password', with: logined_user.password
+    click_on 'Sign in'
+    expect(page).to have_content 'Signed in successfully.'
+    end
+
+  def post_prototype
     visit root_path
     click_on 'Get Started'
     fill_in 'Email address', with: logined_user.email
@@ -32,5 +41,17 @@ feature 'user', type: :feature do
     fill_in 'Concept', with: prototype.concept
     click_on 'Post!'
     expect(page).to have_content 'Prototype was successfully created'
+  end
+
+  scenario 'sign_up' do
+    sign_up
+  end
+
+  scenario 'sign_in' do
+    sign_in
+  end
+
+  scenario 'post_prototype' do
+    post_prototype
   end
 end
