@@ -2,7 +2,7 @@ require 'rails_helper'
 feature 'user', type: :feature do
   given(:prototype){ build(:prototype) }
   given(:user){ build(:user) }
-  given(:logined_user){ create(:user) }
+  given!(:logined_user){ create(:user) }
 
  def sign_up
     visit root_path
@@ -33,7 +33,7 @@ feature 'user', type: :feature do
     expect(page).to have_content 'Signed in successfully.'
     click_on 'New Proto'
     fill_in 'Title', with: prototype.title
-    5.times do |i|
+    4.times do |i|
       attach_file "prototype[prototype_images_attributes][#{i}][image]", "#{Rails.root}/spec/fixtures/image/test.jpg", visible: false
       # "prototype[prototype_images_attributes][#{i}][image]"はブラウザ上でuserの視覚的には確認できないelementなのでCapybaraも認識できなかった！　解決方法visible: falseを適用する。  本当に大切なものは目にみえない。
     end
