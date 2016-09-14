@@ -7,20 +7,23 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/poltergeist'
 require 'shoulda/matchers'
+require 'devise'
 require 'capybara/rspec'
 require 'capybara-screenshot/rspec'
-Capybara.javascript_driver = :selenium
+require 'selenium/webdriver'
+Capybara.default_driver = :selenium
 
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
+  config.include Capybara::DSL
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.include FactoryGirl::Syntax::Methods
   config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
-  config.include Capybara::DSL
+  Capybara.default_driver = :selenium
 end
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
