@@ -11,11 +11,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.update(update_params)
-      redirect_to root_path , flash: { success: 'Yes!! Success' }
+    if current_user.update(update_params)
+      sign_in(current_user, bypass: true)
+      redirect_to user_url(current_user) , flash: { success: 'Yes!! Success' }
     else
-      redirect_to edit_user_path(@user), alert: 'All forms can\'t be blank'
+      redirect_to edit_user_path(current_user), alert: 'All forms can\'t be blank'
     end
   end
 
